@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clearing the Air | Teen Vaping & Tobacco Prevention</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D2B45;
+    --teal: #0A7E8C;
+    --teal-light: #12A3B4;
+    --coral: #E8533A;
+    --gold: #F2A541;
+    --cream: #FBF8F3;
+    --white: #FFFFFF;
+    --gray: #6B7E8A;
+    --card-bg: #EEF6F8;
+    --dark-card: #112236;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    background: rgba(13,43,69,0.97);
+    backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 64px;
+    border-bottom: 2px solid var(--teal);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--coral); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 80px 2.5rem 0;
+  }
+  .hero-bg-circle {
+    position: absolute; border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-bg-circle.c1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(10,126,140,0.2), transparent 70%);
+    top: -100px; right: -100px;
+  }
+  .hero-bg-circle.c2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(232,83,58,0.15), transparent 70%);
+    bottom: -80px; left: 10%;
+  }
+  .hero-content { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--teal-light);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 40px; height: 2px;
+    background: var(--teal-light);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--coral);
+    position: relative;
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--coral);
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .hero-cta:hover { background: #d4412a; transform: translateY(-2px); }
+  .hero-stats {
+    display: flex; gap: 3rem;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    font-weight: 900;
+  }
+  .hero-stat-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+    margin-top: 0.2rem;
+  }
+
+  /* ── SECTIONS COMMON ── */
+  section { padding: 5rem 2.5rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+  .section-lead {
+    font-size: 1.05rem;
+    color: var(--gray);
+    line-height: 1.8;
+    max-width: 640px;
+    margin-bottom: 3rem;
+  }
+
+  /* ── NEEDS ASSESSMENT ── */
+  #needs { background: var(--cream); }
+  .needs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .need-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 2rem;
+    border-left: 4px solid var(--teal);
+    box-shadow: 0 2px 20px rgba(13,43,69,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .need-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(13,43,69,0.12); }
+  .need-card.accent { border-left-color: var(--coral); }
+  .need-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: var(--navy);
+  }
+  .need-card p { font-size: 0.95rem; color: var(--gray); line-height: 1.75; }
+
+  /* ── AUDIENCE ── */
+  #audience { background: var(--navy); color: var(--white); }
+  #audience .section-title { color: var(--white); }
+  #audience .section-lead { color: rgba(255,255,255,0.6); }
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  .audience-card {
+    background: var(--dark-card);
+    border-radius: 8px;
+    padding: 1.75rem 1.5rem;
+    border-top: 3px solid var(--teal);
+    transition: border-color 0.2s;
+  }
+  .audience-card:hover { border-top-color: var(--coral); }
+  .audience-card .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--teal-light);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .audience-card .value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--white);
+    line-height: 1.3;
+  }
+
+  /* ── HEALTH FACTS ── */
+  #facts { background: var(--cream); }
+  .myth-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 40px rgba(13,43,69,0.12);
+  }
+  .myth-header {
+    padding: 1rem 2rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .myth-header.myth { background: var(--coral); }
+  .myth-header.reality { background: var(--teal); }
+  .myth-row {
+    display: contents;
+  }
+  .myth-cell {
+    padding: 1.25rem 2rem;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    border-bottom: 1px solid rgba(13,43,69,0.08);
+  }
+  .myth-cell.myth-side { background: #FEF0ED; color: #7A2A1A; font-style: italic; }
+  .myth-cell.reality-side { background: var(--white); color: var(--navy); }
+
+  .facts-intro { margin-bottom: 2.5rem; }
+
+  /* ── THEORY ── */
+  #theory { background: var(--navy); color: var(--white); }
+  #theory .section-title { color: var(--white); }
+  #theory .section-lead { color: rgba(255,255,255,0.6); }
+  .theory-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .theory-card {
+    background: var(--dark-card);
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .theory-card:hover { transform: translateY(-4px); }
+  .theory-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .theory-card.tc1::before { background: var(--teal); }
+  .theory-card.tc2::before { background: var(--coral); }
+  .theory-card.tc3::before { background: var(--gold); }
+  .theory-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: rgba(255,255,255,0.06);
+    position: absolute;
+    top: 0.5rem; right: 1rem;
+    line-height: 1;
+  }
+  .theory-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .theory-card p { font-size: 0.92rem; color: rgba(255,255,255,0.65); line-height: 1.8; }
+  .theory-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+  .tc1 .theory-tag { background: rgba(10,126,140,0.25); color: var(--teal-light); }
+  .tc2 .theory-tag { background: rgba(232,83,58,0.2); color: #F5927A; }
+  .tc3 .theory-tag { background: rgba(242,165,65,0.2); color: var(--gold); }
+
+  /* ── REFUSAL SKILLS ── */
+  #skills { background: var(--cream); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .skill-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 2rem;
+    display: flex; gap: 1.25rem;
+    align-items: flex-start;
+    box-shadow: 0 2px 20px rgba(13,43,69,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .skill-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(13,43,69,0.1); }
+  .skill-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--teal);
+    font-weight: 900;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 2.5rem;
+  }
+  .skill-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--navy); }
+  .skill-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+  .skill-quote {
+    font-style: italic;
+    background: var(--card-bg);
+    border-left: 3px solid var(--teal);
+    padding: 0.5rem 0.75rem;
+    margin-top: 0.75rem;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.88rem;
+    color: var(--navy);
+  }
+
+  /* ── RESOURCES ── */
+  #resources { background: var(--navy); color: var(--white); }
+  #resources .section-title { color: var(--white); }
+  #resources .section-lead { color: rgba(255,255,255,0.6); }
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .resource-card {
+    background: var(--dark-card);
+    border-radius: 8px;
+    padding: 1.75rem;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .resource-card:hover { border-bottom-color: var(--gold); transform: translateY(-3px); }
+  .resource-card .res-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .resource-card .res-detail {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+  .resource-card .res-action {
+    display: inline-block;
+    margin-top: 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--teal-light);
+    text-decoration: none;
+    border-bottom: 1px solid var(--teal-light);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+  .resource-card .res-action:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* ── FOOTER / CTA ── */
+  .footer-cta {
+    background: var(--coral);
+    padding: 4rem 2.5rem;
+    text-align: center;
+  }
+  .footer-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .footer-cta p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.05rem;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    line-height: 1.75;
+  }
+  .footer-cta a {
+    background: var(--white);
+    color: var(--coral);
+    padding: 0.9rem 2.2rem;
+    border-radius: 4px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: transform 0.2s;
+    display: inline-block;
+  }
+  .footer-cta a:hover { transform: translateY(-2px); }
+  footer {
+    background: #07192B;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* stagger children */
+  .stagger > * { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:0.05s; }
+  .stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:0.15s; }
+  .stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:0.25s; }
+  .stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:0.35s; }
+  .stagger.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:0.45s; }
+  .stagger.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:0.55s; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    section { padding: 3.5rem 1.25rem; }
+    .needs-grid, .skills-grid, .theory-grid, .resources-grid { grid-template-columns: 1fr; }
+    .audience-grid { grid-template-columns: 1fr 1fr; }
+    .myth-grid { grid-template-columns: 1fr; }
+    .myth-header.myth { display: none; }
+    .myth-cell.myth-side { border-left: 4px solid var(--coral); }
+    .myth-cell.reality-side { border-left: 4px solid var(--teal); }
+    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Clearing the <span>Air</span></div>
+  <ul class="nav-links">
+    <li><a href="#needs">The Issue</a></li>
+    <li><a href="#audience">Audience</a></li>
+    <li><a href="#facts">The Facts</a></li>
+    <li><a href="#theory">Theory</a></li>
+    <li><a href="#skills">Take Action</a></li>
+    <li><a href="#resources">Get Help</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Teen Vaping & Tobacco Prevention</div>
+    <h1>The air is<br><em>not</em> as clean<br>as you think.</h1>
+    <p class="hero-sub">Over 2 million American teens currently vape. Most started because of what they saw around them — not what they knew. Knowledge changes everything.</p>
+    <a href="#needs" class="hero-cta">Learn What's Really Going On ↓</a>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">2.1M</div>
+        <div class="hero-stat-label">U.S. teens currently<br>using e-cigarettes</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">89%</div>
+        <div class="hero-stat-label">of adult smokers started<br>before age 18</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">Only 10%</div>
+        <div class="hero-stat-label">of teens actually vape —<br>it just feels like everyone does</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEEDS ASSESSMENT -->
+<section id="needs">
+  <div class="section-inner">
+    <div class="section-tag">Needs Assessment</div>
+    <h2 class="section-title fade-in">Why this is a crisis<br>we can't ignore.</h2>
+    <p class="section-lead fade-in">Vaping didn't emerge by accident — it was designed to be appealing, discreet, and addictive. Here's what's driving the epidemic among teens today.</p>
+    <div class="needs-grid stagger">
+      <div class="need-card">
+        <h3>Flavors as a Gateway</h3>
+        <p>E-cigarettes come in thousands of youth-appealing flavors — mango, cotton candy, mint — specifically engineered to make nicotine feel harmless and fun. Flavored products account for the vast majority of teen vaping initiation.</p>
+      </div>
+      <div class="need-card accent">
+        <h3>Designed to Be Hidden</h3>
+        <p>Many vapes look like USB drives or pens. Students use them in classrooms, bathrooms, and hallways undetected. The discreet design was not an accident — it lowers the perceived risk for teens.</p>
+      </div>
+      <div class="need-card accent">
+        <h3>Nicotine Misconceptions</h3>
+        <p>A significant majority of teen vapers do not realize their device contains nicotine at all. One popular pod device delivers as much nicotine as an entire pack of cigarettes — without any of the visible warning signs of traditional smoking.</p>
+      </div>
+      <div class="need-card">
+        <h3>Peer Modeling & Social Media</h3>
+        <p>Teens dramatically overestimate how common vaping is among their peers. Social media makes vaping appear mainstream and cool. In reality, the majority of teens do not vape — but the perception drives behavior.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTENDED AUDIENCE -->
+<section id="audience">
+  <div class="section-inner">
+    <div class="section-tag">Intended Audience</div>
+    <h2 class="section-title fade-in">Who we're talking to.</h2>
+    <p class="section-lead fade-in">This campaign is designed for the population most vulnerable to nicotine initiation — and most capable of changing course.</p>
+    <div class="audience-grid stagger">
+      <div class="audience-card">
+        <div class="label">Age Group</div>
+        <div class="value">13 – 17<br><small style="font-size:0.9rem;color:rgba(255,255,255,0.5)">Middle & High School</small></div>
+      </div>
+      <div class="audience-card">
+        <div class="label">Gender</div>
+        <div class="value">All Genders<br><small style="font-size:0.9rem;color:rgba(255,255,255,0.5)">Rates are comparable</small></div>
+      </div>
+      <div class="audience-card">
+        <div class="label">Setting</div>
+        <div class="value">Urban &<br>Suburban Schools</div>
+      </div>
+      <div class="audience-card">
+        <div class="label">Cultural Focus</div>
+        <div class="value">Inclusive Design<br><small style="font-size:0.9rem;color:rgba(255,255,255,0.5)">Hispanic outreach integrated</small></div>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem; background:var(--dark-card); border-radius:10px; padding:2rem; border-left:4px solid var(--gold);">
+      <p style="color:rgba(255,255,255,0.7); font-size:0.95rem; line-height:1.8;"><strong style="color:var(--gold);">Cultural Note:</strong> For Hispanic and Latino teens, messaging is framed around <em>familismo</em> — the value of protecting your family. Choosing not to vape isn't just a personal health choice; it protects younger siblings, grandparents, and the people who matter most. This framing resonates far more deeply than individual risk statistics alone.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HEALTH FACTS -->
+<section id="facts">
+  <div class="section-inner">
+    <div class="section-tag">Health Facts</div>
+    <h2 class="section-title fade-in">Myths vs. Reality.</h2>
+    <p class="section-lead fade-in facts-intro">The vaping industry profits from misinformation. Here's what the science actually says — no hype, just facts.</p>
+
+    <div class="myth-grid fade-in">
+      <div class="myth-header myth">🚫 The Myth</div>
+      <div class="myth-header reality">✅ The Reality</div>
+
+      <div class="myth-row">
+        <div class="myth-cell myth-side">"It's just water vapor — totally harmless."</div>
+        <div class="myth-cell reality-side">Vape aerosol contains nicotine, heavy metals (lead, nickel, tin), diacetyl (linked to lung disease), and ultrafine particles that penetrate deep into lung tissue.</div>
+      </div>
+      <div class="myth-row">
+        <div class="myth-cell myth-side">"Everyone at school vapes."</div>
+        <div class="myth-cell reality-side">Only about 10% of teens nationwide currently use e-cigarettes. It feels universal because vaping is visible and talked about — the non-users are simply quiet.</div>
+      </div>
+      <div class="myth-row">
+        <div class="myth-cell myth-side">"I can quit whenever I want."</div>
+        <div class="myth-cell reality-side">Nicotine is among the most addictive substances known. Most teen vapers who try to quit report significant withdrawal symptoms and repeated failed attempts.</div>
+      </div>
+      <div class="myth-row">
+        <div class="myth-cell myth-side">"Flavored vapes are safer than cigarettes."</div>
+        <div class="myth-cell reality-side">Flavoring chemicals like diacetyl add additional toxic risk. "Safer than cigarettes" does not mean safe — it means two harmful things being compared to each other.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem; display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.25rem;">
+      <div style="background:var(--navy); color:white; border-radius:8px; padding:1.75rem; text-align:center;">
+        <div style="font-family:'Playfair Display',serif; font-size:2.5rem; color:var(--coral); font-weight:900;">7,000+</div>
+        <div style="font-size:0.85rem; color:rgba(255,255,255,0.6); margin-top:0.4rem; line-height:1.5;">Chemicals identified in<br>tobacco smoke</div>
+      </div>
+      <div style="background:var(--navy); color:white; border-radius:8px; padding:1.75rem; text-align:center;">
+        <div style="font-family:'Playfair Display',serif; font-size:2.5rem; color:var(--gold); font-weight:900;">20 packs</div>
+        <div style="font-size:0.85rem; color:rgba(255,255,255,0.6); margin-top:0.4rem; line-height:1.5;">Nicotine equivalent in some<br>popular vaping devices</div>
+      </div>
+      <div style="background:var(--navy); color:white; border-radius:8px; padding:1.75rem; text-align:center;">
+        <div style="font-family:'Playfair Display',serif; font-size:2.5rem; color:var(--teal-light); font-weight:900;">25%</div>
+        <div style="font-size:0.85rem; color:rgba(255,255,255,0.6); margin-top:0.4rem; line-height:1.5;">Higher rate of anxiety & depression<br>among teen vapers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THEORY -->
+<section id="theory">
+  <div class="section-inner">
+    <div class="section-tag">Health Behavior Theory</div>
+    <h2 class="section-title fade-in">Why teens start —<br>and how to stop it.</h2>
+    <p class="section-lead fade-in">This campaign is grounded in <strong style="color:var(--gold)">Social Cognitive Theory</strong> (Albert Bandura), which explains that behavior is shaped by what we observe, what we believe we can do, and what outcomes we expect. Here's how each construct applies.</p>
+    <div class="theory-grid stagger">
+      <div class="theory-card tc1">
+        <div class="theory-num">01</div>
+        <div class="theory-tag">SCT Construct</div>
+        <h3>Self-Efficacy</h3>
+        <p>Your belief in your own power to say no. When self-efficacy is high, peer pressure loses its grip. This campaign teaches refusal skills to actively build it — because efficacy is a skill, not a personality trait.</p>
+      </div>
+      <div class="theory-card tc2">
+        <div class="theory-num">02</div>
+        <div class="theory-tag">SCT Construct</div>
+        <h3>Outcome Expectations</h3>
+        <p>Teens often overestimate the social benefits of vaping and underestimate the health risks. By replacing inaccurate expectations with evidence-based facts, this campaign shifts the cost-benefit calculation teens make unconsciously.</p>
+      </div>
+      <div class="theory-card tc3">
+        <div class="theory-num">03</div>
+        <div class="theory-tag">SCT Construct</div>
+        <h3>Observational Learning</h3>
+        <p>We learn by watching others. The same peer modeling that drives initiation can drive prevention. By elevating teens who choose not to vape as respected role models, we reshape the social norm — from the inside out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFUSAL SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-tag">Take Action</div>
+    <h2 class="section-title fade-in">Your power<br>to say no.</h2>
+    <p class="section-lead fade-in">Self-efficacy isn't about willpower. It's a learnable skill. Here are four research-backed strategies to navigate pressure in the moment.</p>
+    <div class="skills-grid stagger">
+      <div class="skill-card">
+        <div class="skill-num">01</div>
+        <div>
+          <h3>The Direct Refusal</h3>
+          <p>Simple, firm, and no explanation needed. You don't owe anyone a reason for your choices. Practice saying it until it feels natural.</p>
+          <div class="skill-quote">"No thanks, I'm good."</div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-num">02</div>
+        <div>
+          <h3>Change the Subject</h3>
+          <p>Redirect the moment before it gets awkward. You take control of the situation by shifting to something else entirely.</p>
+          <div class="skill-quote">"Nah, let's go grab something to eat."</div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-num">03</div>
+        <div>
+          <h3>Invoke an External Reason</h3>
+          <p>Take the social pressure off yourself personally by citing an outside constraint. Sports, family, or activities all work.</p>
+          <div class="skill-quote">"Coach tests us — I can't risk it."</div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-num">04</div>
+        <div>
+          <h3>Find Your People</h3>
+          <p>Research shows that having even one close friend who doesn't use substances significantly reduces your own risk of initiation. Community is protection.</p>
+          <div class="skill-quote">Your crew shapes your choices — choose them wisely.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <div class="section-inner">
+    <div class="section-tag">Get Help</div>
+    <h2 class="section-title fade-in">Already using?<br>Help is here — no judgment.</h2>
+    <p class="section-lead fade-in">Nicotine addiction is a physiological process, not a character flaw. These resources are free, confidential, and designed for teens.</p>
+    <div class="resources-grid stagger">
+      <div class="resource-card">
+        <div class="res-name">This Is Quitting</div>
+        <div class="res-detail">Free text-to-quit program built specifically for teens and young adults. Confidential, anonymous support right from your phone.</div>
+        <a class="res-action" href="#">Text DITCHVAPE to 88709 →</a>
+      </div>
+      <div class="resource-card">
+        <div class="res-name">smokefree.gov/teens</div>
+        <div class="res-detail">CDC-backed teen-specific quit guides, daily tips, and live chat support. No sign-up required.</div>
+        <a class="res-action" href="https://smokefree.gov/teens" target="_blank">Visit Site →</a>
+      </div>
+      <div class="resource-card">
+        <div class="res-name">1-800-QUIT-NOW</div>
+        <div class="res-detail">National quitline with free counseling available in multiple languages including Spanish. Open evenings and weekends.</div>
+        <a class="res-action" href="#">Call Now →</a>
+      </div>
+      <div class="resource-card">
+        <div class="res-name">Truth Initiative</div>
+        <div class="res-detail">Youth-led tobacco prevention organization with research, tools, and a community for teens who want to quit or advocate.</div>
+        <a class="res-action" href="https://truthinitiative.org" target="_blank">truthinitiative.org →</a>
+      </div>
+      <div class="resource-card">
+        <div class="res-name">American Lung Association</div>
+        <div class="res-detail">The Not On Tobacco (N-O-T) program is a free, school-based cessation program specifically for teen smokers and vapers.</div>
+        <a class="res-action" href="https://www.lung.org" target="_blank">lung.org →</a>
+      </div>
+      <div class="resource-card">
+        <div class="res-name">Your School Counselor</div>
+        <div class="res-detail">Confidential, free, and no referral needed. Your counselor can connect you with cessation support and won't judge you for asking.</div>
+        <a class="res-action" href="#">Talk to Someone →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<div class="footer-cta">
+  <h2>You have the power.<br>Use it.</h2>
+  <p>Knowing the facts is step one. Building your self-efficacy is step two. Choosing your people is step three. The air is clearer on the other side of this choice.</p>
+  <a href="#needs">Start From the Top</a>
+</div>
+<footer>
+  <p>Health Education Project · Social Cognitive Theory · Adolescent Vaping & Tobacco Prevention · Sources: CDC National Youth Tobacco Survey 2023, U.S. Surgeon General's Report, Truth Initiative</p>
+</footer>
+
+<script>
+  // Intersection observer for fade-in animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in, .stagger').forEach(el => observer.observe(el));
+
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+</script>
+</body>
+</html>
